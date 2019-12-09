@@ -56,7 +56,6 @@ def analyze_frequently_words(reviews, n=10, file_name=None):
             '\s+|█|░', ' ',
             emoji_stripped_doc)  # █ ░ remove + newline stripped
 
-        # newline_stripped_doc = re.sub('\s+', ' ', document)
         print(newline_stripped_doc)
 
         text = []

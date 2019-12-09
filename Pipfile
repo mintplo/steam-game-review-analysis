@@ -12,9 +12,9 @@ yapf = "*"
 requests = "*"
 spacy = "*"
 gensim = "*"
-scikit-learn = "*"
 vadersentiment = "*"
 simplejson = "*"
+nltk = "*"
 
 [requires]
 python_version = "3.7"

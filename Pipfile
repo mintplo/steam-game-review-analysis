@@ -10,6 +10,11 @@ pandas = "*"
 numpy = "*"
 yapf = "*"
 requests = "*"
+spacy = "*"
+gensim = "*"
+scikit-learn = "*"
+vadersentiment = "*"
+simplejson = "*"
 
 [requires]
 python_version = "3.7"

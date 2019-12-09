@@ -1,8 +1,7 @@
 # steam-game-review-analysis
 Game Review Analysis in Steam for 2019 HYU Social Network Analysis and Text Mining Term Project
 
-## TODO (확장)
-- steamreviews Python Library 적용
+
 
 &nbsp;
 --------

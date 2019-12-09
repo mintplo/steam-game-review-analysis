@@ -29,7 +29,6 @@ for _ in range(0, 51):
     positive_reviews = positive_reviews.drop_duplicates(['recommendationid'],
                                                         keep='first')
     print(positive_reviews)
-    # print(response['cursor'])
 
     # IP 블락킹을 피하기 위해 sleeping
     time.sleep(10)

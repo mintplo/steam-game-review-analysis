@@ -54,8 +54,8 @@ positive_reviews = positive_reviews.drop_duplicates(['recommendationid'],
 # 쓸모 없는 Column 제거
 positive_reviews = positive_reviews.drop(['Unnamed: 0'], axis=1)
 
-# Negative Reviews 데이터 전체 태그
-positive_reviews['is_recommend'] = False
+# Positive Reviews 데이터 전체 태그
+positive_reviews['is_recommend'] = True
 
 # JSON 데이터 형식으로 된 Author 정보 Flatten 처리
 positive_authors = positive_reviews['author'].apply(pd.Series)
@@ -71,9 +71,15 @@ normalized_positive_reviews = pd.concat([
 # 부정적 리뷰 데이터 세트와 긍정적 리뷰 데이터 세트 MERGE
 normalized_reviews = pd.concat(
     [normalized_negative_reviews, normalized_positive_reviews], axis=0)
+
+# 텍스트 마이닝 분석 대상은 영어로 된 리뷰만
+normalized_english_reviews = normalized_reviews[normalized_reviews['language']
+                                                == 'english']
+print(normalized_reviews[normalized_reviews['language'] == 'english'])
+print(normalized_reviews[normalized_reviews['language'] != 'english'])
 """
 Nomarlized Reviews Export
 """
 dirname = os.path.dirname(__file__)
-csv_filename = os.path.join(dirname, './normalized_reviews.csv')
-normalized_reviews.to_csv(csv_filename, mode='w')
+csv_filename = os.path.join(dirname, './normalized_eng_reviews.csv')
+normalized_english_reviews.reset_index().to_csv(csv_filename, mode='w')

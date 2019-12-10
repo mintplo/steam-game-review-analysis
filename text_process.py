@@ -53,7 +53,8 @@ def analyze_frequently_words(reviews, n=10, file_name=None):
             flags=re.UNICODE)
         emoji_stripped_doc = emoji_pattern.sub(r'', document)
         newline_stripped_doc = re.sub(
-            '\s+|█|░', ' ',
+            '\s+|█|░|▀|▒|▄|⠀|─|☐|game',
+            ' ',  # game 단어 제거
             emoji_stripped_doc)  # █ ░ remove + newline stripped
 
         print(newline_stripped_doc)

@@ -36,7 +36,7 @@ $ brew install pipenv
 - `Steam UserReview API`
 - 변수 파라미터 `review_type`의 `positive`, `negative`에 따라 5100개씩 획득, 총 10200개
 
-#### 2. 데이터 전처리
+#### 2. 데이터 전처리 `process.py`
 부정적 리뷰 세트, 긍정적 리뷰 세트 각각에 대해 아래의 처리를 진행
 
 - `review_type: positive, negative`에 따른 `is_recommend` FLAG 추가
@@ -45,7 +45,7 @@ $ brew install pipenv
 - 부정적 리뷰 데이터 세트와 긍정적 리뷰 데이터 세트 MERGE
 - 영어로 된 리뷰만 텍스트 마이닝 분석 대상 처리
 
-#### 3. EDA
+#### 3. EDA `analyze_eda.py`
 아래 변수에 대한 기본 통계 분석 실시
 
 **정수형**
@@ -61,7 +61,7 @@ $ brew install pipenv
 - `received_for_free`
 - `written_during_early_access`
 
-#### 4. 텍스트 프로세싱
+#### 4. 텍스트 프로세싱 `text_process.py`
 전체 리뷰에 대해 아래의 텍스트 프로세싱
 
 - 이모지, 특수문자 제거
@@ -79,18 +79,18 @@ $ brew install pipenv
 - NUM_GAMES_OWNED 50% 구간 66개 초과/66개 이하
 - NUM_REVIEWS 50% 구간 3개 이상/3개 이하
 
-#### 5. 감정 분석
+#### 5. 감정 분석 `sentiment_analysis.py`, `sentiment_eda.py`
 `vaderSentiment` 이용, 전체 리뷰에 대해 감정 분석을 실시하여 실제 유저가 선택한 추천/비추천 정보와 맞는지 확인
 
 - 각 리뷰 문장에 대해 `polarity_scores` 산출
 - `compound` 수치로 긍정, 중립, 부정 분류
-  - >= 0.5: 긍정
-  - > -0.05 and < 0.05: 중립
-  - < -0.05: 부정
+  - `>= 0.5`: 긍정
+  - `> -0.05 and < 0.05`: 중립
+  - `< -0.05`: 부정
 - `is_not_match` 정보 생성
 - 기본 `EDA` 진행
 
-#### 6. 문장 분석
+#### 6. 문장 분석 `summarized_review.py`
 
 - NLTK, GENSIM으로 각각 문장 분석 진행 + 차이점 확인
 

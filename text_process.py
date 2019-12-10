@@ -108,10 +108,14 @@ def analyze_frequently_words(reviews, n=10, file_name=None):
     adj_freq_words = extract_common_words(adj_list, n)
     print(adj_freq_words)
 
+    # 전체 텍스트 Freq
+    all_freq_words = extract_common_words(texts, n)
+
     f = open(pkl_filename, 'w')
     simplejson.dump(noun_freq_words, f)
     simplejson.dump(verb_freq_words, f)
     simplejson.dump(adj_freq_words, f)
+    simplejson.dump(all_freq_words, f)
     f.close()
 
 
